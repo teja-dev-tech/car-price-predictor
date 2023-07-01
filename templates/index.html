@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Price Predictor</title>
+    <link rel="stylesheet" href="..\static\styles.css" />
+    <link rel="icon" href="..\static\car-favicon.ico" />
+  </head>
+  <body>
+    <br />
+    <h1 id="title">Car Price PredictorCar Price Predictor</h1>
+    <p id="description">
+      A place where you can predict the price of your used car effortlessly
+    </p>
+    <div class="myform">
+      <br /><br />
+      <form action="{{ url_for('predict')}}" method="post" class="inside_form">
+        <label for="name" class="label-name">Car Brand</label>
+        <input
+          type="text"
+          class="input-name"
+          placeholder="name of the car"
+          required
+        />
+        <label for="name" class="label-name">Year of purchase</label>
+        <input
+          type="text"
+          class="input-name"
+          name="Year"
+          placeholder="Year of the car when it was bought"
+          required
+        />
+        <label for="name" class="label-name"
+          >Current Showroom Price(In Lakhs)</label
+        >
+        <input
+          type="text"
+          class="input-name"
+          name="Present_Price"
+          placeholder="Present price of car"
+          required
+        />
+        <label for="name" class="label-name">Kilometers driven</label>
+        <input
+          type="text"
+          class="input-name"
+          name="Kms_Driven"
+          placeholder="Number of Kilometres the car is driven"
+          required
+        />
+
+        <label for="Fuel Type" class="label-name">No of owners</label>
+        <input
+          type="text"
+          class="input-name"
+          name="Owner"
+          placeholder="0 or 1 or 2"
+          required
+        />
+
+        <label for="Fuel Type" class="label-name">Fuel type</label>
+        <select name="Fuel_Type_Petrol" class="select-type" required>
+          <option value="" disabled selected>Select fuel type</option>
+          <option value="petrol">petrol</option>
+          <option value="diesel">diesel</option>
+          <option value="CNG">CNG</option>
+        </select>
+
+        <label for="Seller Type" class="label-name">Seller type</label>
+        <select name="Seller_Type_Individual" class="select-type" required>
+          <option value="" disabled selected>Select Seller type</option>
+          <option value="individual">individual</option>
+          <option value="dealer">dealer</option>
+        </select>
+
+        <label for="Fuel Type" class="label-name">Transmission Type</label>
+        <select name="Transmission_Mannual" class="select-type" required>
+          <option value="" disabled selected>Select transmission type</option>
+          <option value="manual">manual</option>
+          <option value="automatic">automatic</option>
+        </select>
+
+        <input type="submit" id="submit" value="Submit" />
+        <div class="result">
+          <p>{{ prediction_text }}</p>
+        </div>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>
